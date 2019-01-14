@@ -1,25 +1,39 @@
-import React,{Component} from 'react';
-import {FlatList,Text} from 'react-native';
+import React, { Component } from 'react';
+import {
+  FlatList,
+  Text
+} from 'react-native';
 import Layout from '../components/suggestion-list-layout';
+import Empty from '../components/empty';
+import Separator from '../components/vertical-separator';
+
 class SuggestionList extends Component {
-	render(){
-		const list=[
-		{
-			title:'titulo',
-			key: '1'
-		},
-		{
-			title:'otro titulo',
-			key:'2'
-		}
-		]
-		return(
-         <Layout title="Recomendados Para Ti">
-			<FlatList data={list} renderItem={({item}) =><Text>{item.title}</Text> } 
-			/>
-		</Layout>
-			)
-	}
+  renderEmtpy = () => <Empty text="No hay sugerencias :(" />
+  itemSeparator = () => <Separator color="blue" />
+  render() {
+    const list = [
+      {
+        title: 'Avengers',
+        key: '1',
+      },
+      {
+        title: 'Pokemon',
+        key: '2'
+      }
+    ]
+    return (
+      <Layout
+        title="Recomendado para ti"
+        >
+        <FlatList
+          data={list}
+          ListEmptyComponent={this.renderEmtpy}
+          ItemSeparatorComponent={this.itemSeparator}
+          renderItem={({ item }) => <Text>{item.title}</Text> }
+        />
+      </Layout>
+    )
+  }
 }
 
 export default SuggestionList
