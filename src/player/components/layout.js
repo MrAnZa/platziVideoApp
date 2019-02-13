@@ -7,9 +7,15 @@ import {
 function Layout(props){
 return(
 	<View style={styles.container}>
-	<View style={styles.video}>
-	{props.video}
-	</View>
+		<View style={styles.video}>
+			{props.video}
+		</View>
+		<View style={styles.overlay}>
+			{
+			props.loading &&
+			props.loader
+			}
+		</View>
 	</View>
 	)
 }
@@ -25,6 +31,15 @@ const styles=StyleSheet.create({
 		bottom:0,
 		backgroundColor: 'black',
 
+	},
+	overlay: {
+		position: 'absolute',
+		left: 0,
+		top: 0,
+		bottom:0,
+		right:0,
+		justifyContent: 'center',
+		alignItems: 'center',
 	}
 })
 export default Layout;
