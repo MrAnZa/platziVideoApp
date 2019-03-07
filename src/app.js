@@ -6,6 +6,7 @@ import Header from './sections/components/header';
 import SuggestionList from './videos/containers/suggestion-list';
 import CategoryList from './videos/containers/category-list.js';
 import Movie from './screens/containers/movie';
+import Search from './sections/containers/search';
 import {
   Text
 } from 'react-native';
@@ -34,7 +35,7 @@ class AppLayout extends Component {
 		return(
 		  <Home>
             <Header />
-            <Text>buscador</Text>
+            <Search/>
             <CategoryList />
             <SuggestionList />
           </Home>
